@@ -91,9 +91,12 @@ elif [ "$SELECT_ARCH" = "S390X" ]; then
   fi
 
 elif [ "$SELECT_ARCH" = "IBMI73" ]; then
+  export COMPILER_LEVEL="10"
   echo "Setting compiler for Node version $NODEJS_MAJOR_VERSION on IBMI73"
-  export PATH="/QOpenSys/pkgs/lib/ccache:$PATH"
-  echo "Compiler left as system default (6.3)"
+  export CC="ccache gcc-${COMPILER_LEVEL}"
+  export CXX="ccache g++-${COMPILER_LEVEL}"
+  export LINK="g++-${COMPILER_LEVEL}"
+  echo "Compiler set to $COMPILER_LEVEL"
 
 elif [ "$SELECT_ARCH" = "AIXPPC" ]; then
   case $NODE_NAME in
