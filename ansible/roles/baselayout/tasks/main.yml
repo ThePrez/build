@@ -67,6 +67,10 @@
     name: "git"
     state: absent
 
+- name: Clear preinstalled metadata (IBM i)
+  when: os|startswith("ibmi")
+  shell: yum clean all
+
 - name: install packages
   when: not os|startswith("zos") and not os|startswith("macos")
   package: 
