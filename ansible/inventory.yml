@@ -47,6 +47,9 @@ hosts:
     - iinthecloud:
         ibmi73-ppc64_be-1: {ip: 65.183.160.62, user: nodejs}
 
+    - rzkh:
+        ibmi73-ppc64_be-4: {ip: 185.113.4.148, user: nodejs}
+
     - joyent:
         smartos17-x64-2: {ip: 147.75.88.60}
         smartos18-x64-2: {ip: 147.75.88.53}
