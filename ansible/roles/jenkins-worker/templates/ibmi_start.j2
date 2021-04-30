@@ -7,7 +7,7 @@ export PASE_PATH=$PATH
 export HOME={{ home }}/{{ server_user }}
 export NODE_COMMON_PIPE="$HOME/test.pipe"
 export NODE_TEST_DIR="$HOME/tmp"
-export JOBS=4
+export JOBS=$(qsh -c "db2 -s 'SELECT configured_cpus*8 as cpus FROM TABLE(qsys2.system_status()) x'" | egrep "^\s*[0-9]+\s*$" | tr -d ' ')
 export OSTYPE=ibmi
 export QIBM_USE_DESCRIPTOR_STDIO=Y
 
