@@ -43,11 +43,12 @@
 
 - name: setup user home directory for ibmi
   when: os|startswith("ibmi")
-  command: "{{ item }}"
-  with_items:
-    - "mkdir -p /home/{{ server_user|upper }}"
-    - "chown -R {{ server_user|lower }} /home/{{ server_user|upper }}"
-    - "chmod 0755 /home/{{ server_user|upper }}"
+  file:
+    path: "{{ home }}/{{ server_user|upper }}"
+    state: directory
+    owner: "{{ server_user }}"
+    mode: 0755
+    recurse: yes
 
 - name: add ::1 to /etc/hosts for ipv6 compat
   when: not os|startswith("zos") and not os|startswith("ibmi")
