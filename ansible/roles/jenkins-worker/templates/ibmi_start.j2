@@ -1,6 +1,6 @@
 #!/QOpenSys/pkgs/bin/bash
 CIJOBNAME="JENKINS_CI"
-SBMJOB_OPTS="JOB($CIJOBNAME) USER(IOJS)"
+SBMJOB_OPTS="JOB($CIJOBNAME) USER(IOJS) JOBQ(QUSRNOMAX)"
 
 export PATH=/QOpenSys/pkgs/lib/ccache:/QOpenSys/pkgs/bin:/QOpenSys/usr/bin:/usr/ccs/bin:/QOpenSys/usr/bin/X11:/usr/sbin:.:/usr/bin
 export PASE_PATH=$PATH
