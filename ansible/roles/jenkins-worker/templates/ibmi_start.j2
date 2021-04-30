@@ -7,7 +7,7 @@ export PASE_PATH=$PATH
 export HOME={{ home }}/{{ server_user }}
 export NODE_COMMON_PIPE="$HOME/test.pipe"
 export NODE_TEST_DIR="$HOME/tmp"
-export JOBS=4
+export JOBS={{ jobs_env|default("2") }}
 export OSTYPE=ibmi
 export QIBM_USE_DESCRIPTOR_STDIO=Y
 
