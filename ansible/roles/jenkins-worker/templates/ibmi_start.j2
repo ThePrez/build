@@ -33,8 +33,9 @@ rm -fr $UDFS_DIR && mkdir -p $UDFS_DIR && rm -f $UDFS_DIR_REAL
 echo "UDFS created. Mounting UDFS at $UDFS_DIR"
 rm -r $UDFS_DIR && mkdir -p $UDFS_DIR
 /QOpenSys/usr/bin/system -vkpieb "MOUNT TYPE(*UDFS) MFS('$UDFS_DIR_REAL') MNTOVRDIR('$UDFS_DIR')" || exit 18
+chown -R {{ server_user|upper }} "$UDFS_DIR"
 export CCACHE_DIR="$UDFS_DIR/.ccache"
-mkdir -p "$CCACHE_DIR"
+mkdir -p "$CCACHE_DIR" && chown -R {{ server_user|upper }} "$CCACHE_DIR"
 echo "done"
 
 ########################### Now start our agent
